@@ -1,10 +1,18 @@
 const express = require('express');
+const path = require('path');
+const hbs = require('hbs');
+
 const app = express();
-const port = 3000;
 
-// Serve static files from the "public" folder
-app.use(express.static('public'));
+// ----- VIEW ENGINE SETUP -----
+app.set('views', path.join(__dirname, 'app_server', 'views'));
+app.set('view engine', 'hbs');
 
-app.listen(port, () => {
-  console.log(`Travlr server running at http://localhost:${port}`);
-});
+// ----- STATIC FILES -----
+app.use(express.static(path.join(__dirname, 'public')));
+
+// ----- ROUTES -----
+const travelRouter = require('./app_server/routes/travel');
+app.use('/travel', travelRouter);
+
+module.exports = app;
