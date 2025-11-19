@@ -1,15 +1,15 @@
-<h1>{{title}}</h1>
+<h1>Travel</h1>
 
-<ul>
+<ul id="sites">
   {{#each trips}}
     <li>
-      <strong>{{name}}</strong><br>
-      {{summary}}<br>
+      <img src="/images/{{image}}" alt="{{name}}">
 
-      {{#if image}}
-        <img src="/{{image}}" alt="{{name}}" style="max-width:200px; margin-top:10px;">
-      {{/if}}
+      <h2>{{name}}</h2>
+
+      {{#each summary}}
+        <p>{{this}}</p>
+      {{/each}}
     </li>
-    <br>
   {{/each}}
 </ul>
