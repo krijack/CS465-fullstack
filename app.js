@@ -29,5 +29,10 @@ app.use('/', indexRouter);
 app.use('/travel', travelRouter);
 
 
+// ------------------- API ROUTES -------------------
+const apiRouter = require('./app_api/routes/index');
+app.use('/api', apiRouter);
+
+
 // ------------------- EXPORT APP -------------------
 module.exports = app;
