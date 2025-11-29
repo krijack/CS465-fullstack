@@ -1,15 +1,19 @@
-<h1>Travel</h1>
+{{> header}}
 
-<ul id="sites">
-  {{#each trips}}
-    <li>
-      <img src="/images/{{image}}" alt="{{name}}">
+<div class="container">
+    <h1>Travel</h1>
 
-      <h2>{{name}}</h2>
+    <ul id="sites">
+        {{#each trips}}
+        <li>
+            <img src="/images/{{this.image}}" alt="{{this.name}}">
+            <h2>{{this.name}}</h2>
+            <p><strong>{{this.resort}}</strong></p>
+            <p>{{this.length}} for ${{this.perPerson}} per person</p>
+            <div class="description">{{{this.description}}}</div>
+        </li>
+        {{/each}}
+    </ul>
+</div>
 
-      {{#each summary}}
-        <p>{{this}}</p>
-      {{/each}}
-    </li>
-  {{/each}}
-</ul>
+{{> footer}}

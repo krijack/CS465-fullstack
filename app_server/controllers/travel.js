@@ -1,14 +1,14 @@
-var fs = require('fs');
+const mongoose = require('mongoose');
+require('../models/db');
 
-var trips = JSON.parse(fs.readFileSync('./app_server/data/trips.json', 'utf8'));
+const Trip = mongoose.model('trips');
 
-const travelList = function(req, res) {
-    res.render('travel', {
-        title: 'Travel',
-        trips
-    });
+/* GET travel view */
+const travel = async (req, res) => {
+    const trips = await Trip.find({});
+    res.render('travel', { title: 'Travlr Getaways', trips });
 };
 
 module.exports = {
-    travelList
+    travel  // This must match what the route is calling
 };
