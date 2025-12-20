@@ -1,0 +1,13 @@
+<h2 class="mb-3">Admin Login</h2>
+
+<form (ngSubmit)="login()">
+  <div class="mb-3">
+    <input class="form-control" name="username" [(ngModel)]="username" placeholder="Username" />
+  </div>
+
+  <div class="mb-3">
+    <input class="form-control" type="password" name="password" [(ngModel)]="password" placeholder="Password" />
+  </div>
+
+  <button class="btn btn-primary" type="submit">Login</button>
+</form>
